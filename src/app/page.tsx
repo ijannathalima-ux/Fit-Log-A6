@@ -1,7 +1,8 @@
-import Image from "next/image";
+import BannerPage from "./components/homepage/Banner";
+
 
 export default function Home() {
   return (
-   <h2>Israt</h2>
+   <BannerPage/>
   );
 }
