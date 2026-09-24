@@ -5,7 +5,7 @@ import ActiveLink from "./ActiveLink";
 
 const NavbarPage = () => {
     return (
-        <div className="bg-[#0C0D10] sticky top-0 z-40">
+        <div className="bg-[#0C0D10] sticky top-0 z-40 border border-[#9CA3AF]">
             <div className="container mx-auto p-6">
                 <div className="flex justify-between">
 

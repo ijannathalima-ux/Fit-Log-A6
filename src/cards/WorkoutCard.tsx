@@ -28,7 +28,7 @@ const WorkoutCards = ({ workout }: WorkoutCardsProps) => {
                     </div>
 
 
-                    <div className="p-4">
+                    <div className="p-5">
 
                         <div className="flex flex-wrap gap-2 mb-3">
                             {workout.muscleGroups.map((muscle, index) => (
