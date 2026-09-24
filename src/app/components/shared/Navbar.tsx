@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "@/app/assets/logo.png";
 import Link from "next/link";
+import ActiveLink from "./ActiveLink";
 
 const NavbarPage = () => {
     return (
@@ -15,13 +16,13 @@ const NavbarPage = () => {
                     </div>
 
                     {/* navbar menu */}
-                    <ul className="flex justify-center items-center gap-4 text-[19px] text-[#9CA3AF] font-medium">
-                        <li><Link href="/">Workouts</Link></li>
-                        <li><Link href="/my-plan">My Plan</Link></li>
+                    <ul className="flex justify-center items-center gap-4 text-[17px] text-[#9CA3AF] font-medium">
+                        <li><ActiveLink href="/">Workouts</ActiveLink></li>
+                        <li><ActiveLink href="/my-plan">My Plan</ActiveLink></li>
                     </ul>
 
 
-                    <div className="flex justify-center items-center gap-9 text-[19px] text-[#9CA3AF] font-medium">
+                    <div className="flex justify-center items-center gap-9 text-[17px] text-[#9CA3AF] font-medium">
                         {/* plan button */}
                         <Link href="/my-plan" className="flex items-center gap-2">
                             <span> Plan </span>
