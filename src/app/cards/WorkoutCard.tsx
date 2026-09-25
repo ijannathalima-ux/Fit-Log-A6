@@ -10,7 +10,7 @@ interface WorkoutCardsProps {
 const WorkoutCards = ({ workout }: WorkoutCardsProps) => {
     return (
         <Link
-            href={`/fitlog/${workout.id}`}
+            href={`/workout/${workout.id}`}
             className="group bg-[#15171E] rounded-2xl border border-[#222630] overflow-hidden hover:border-[#C2F800] transition-all duration-300 flex flex-col justify-between"
         >
             <div>

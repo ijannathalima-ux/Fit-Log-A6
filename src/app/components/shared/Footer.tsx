@@ -3,7 +3,7 @@ import Logo from "@/app/assets/logo.png";
 
 const FooterPage = () => {
     return (
-       <div className="border border-t-[#9CA3AF] mt-9 p-9 bg-[#0C0D10]">
+       <div className="border border-t-[#9CA3AF] mt-11 p-9 bg-[#0C0D10]">
          <div className="container mx-auto">
             <div className="flex justify-between">
                 <div className="flex justify-center items-center gap-2">
