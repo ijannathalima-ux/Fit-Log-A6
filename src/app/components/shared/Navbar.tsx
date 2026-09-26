@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Logo from "@/app/assets/logo.png";
-import Link from "next/link";
 import ActiveLink from "./ActiveLink";
+import PlanBadge from "../badge/PlanBadge";
+import SavedBadge from "../badge/SavedBadge";
 
 const NavbarPage = () => {
     return (
@@ -35,21 +36,9 @@ const NavbarPage = () => {
                     {/* plan and saved */}
                     <div className="flex items-center gap-5 text-sm md:gap-9 md:text-[17px] text-[#9CA3AF] font-medium">
 
-                        {/* plan button */}
-                        <Link href="/my-plan"
-                            className="flex items-center gap-2"
-                        >
-                            <span>Plan </span>
-                            <span className="bg-[#C2F800] rounded-full py-1 px-3 text-black">0</span>
-                        </Link>
+                        <PlanBadge />
 
-                        {/* saved button */}
-                        <Link href="/my-plan"
-                            className="flex items-center gap-2"
-                        >
-                            <span> Saved </span>
-                            <span className="border border-[#2D313B] rounded-full text-[#D1D5DB] py-1 px-3">0</span>
-                        </Link>
+                        <SavedBadge />
                     </div>
                 </div>
             </div>

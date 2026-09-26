@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BannerImage from "@/app/assets/banner.png";
+import { FiArrowRight } from "react-icons/fi";
 
 const BannerPage = () => {
     return (
@@ -31,6 +32,7 @@ const BannerPage = () => {
                         className="inline-flex items-center gap-2 rounded-md bg-[#C2F800] px-6 py-3 text-sm font-medium uppercase tracking-wide text-black transition hover:opacity-90"
                     >
                         <span>BROWSE WORKOUTS</span>
+                        <FiArrowRight/>
                     </a>
 
                 </div>
@@ -43,7 +45,7 @@ const BannerPage = () => {
                     <Image
                         src={BannerImage}
                         alt="FitLog workout"
-                        className="mx-auto w-full max-w-[400px]"
+                        className="mx-auto w-full max-w-100"
                     />
                 </div>
 

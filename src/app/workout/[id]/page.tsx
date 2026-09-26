@@ -1,7 +1,7 @@
+import WorkoutActions from "@/app/components/workout-actions/WorkoutActions";
 import { FitLogType } from "@/type/types";
 import Image from "next/image";
-import { BiPlusCircle } from "react-icons/bi";
-import { FiBookmark } from "react-icons/fi";
+import { notFound } from "next/navigation";
 
 interface IWorkoutDetailsPageProps {
     params: Promise<{
@@ -9,22 +9,18 @@ interface IWorkoutDetailsPageProps {
     }>
 }
 
-const getWorkout = async () => {
-    const res = await fetch("http://localhost:3000/data.json");
-    const data = await res.json()
-    return data;
-}
 
 const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
 
     const { id } = await params;
-    const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`)
-    const workoutId = await res.json()
-    const workoutData = await getWorkout()
-    const workoutDetailsData = workoutData.find((workout: FitLogType) => String(workout.id) === String(id)) as FitLogType
-    console.log(workoutDetailsData)
 
-    console.log(workoutId)
+    const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`)
+
+    if(!res.ok){
+        notFound()
+    }
+
+    const workoutDetailsData: FitLogType = await res.json();
 
     return (
         <div className="bg-[#0C0D10] min-h-screen text-white p-6 md:p-12">
@@ -68,7 +64,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
                                 <span className="text-[#9CA3AF] uppercase font-bold">Equipment</span>
                                 <span className="text-white">{workoutDetailsData.equipment}</span>
                             </div>
-                            
+
                             <div className="flex justify-between py-3">
                                 <span className="text-[#9CA3AF] uppercase font-bold">Difficulty</span>
                                 <span className="text-white">{workoutDetailsData.difficulty}</span>
@@ -111,26 +107,13 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
                         </div>
                     </div>
 
-                    {/* button */}
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        {/* Primary Button */}
-                        <button className="flex-1 bg-[#C2F800] text-black font-bold text-xs uppercase py-2 rounded-2xl flex items-center justify-center gap-2 hover:opacity-90 transition">
-                            <BiPlusCircle className="w-4 h-4" />
-                            <span>Add to today&apos;s plan</span>
-                        </button>
+                    <WorkoutActions workout={workoutDetailsData} />
 
-                        {/* Secondary Button */}
-                        <button className="flex-1 border border-[#2D313B] text-[#D1D5DB] font-bold text-xs uppercase py-3 rounded-2xl flex items-center justify-center gap-2 hover:border-white transition">
-                            <FiBookmark className="w-4 h-4" />
-                            <span>Save for later</span>
-                        </button>
-                    </div>
-                    
                 </div>
 
             </div>
 
-            
+
         </div>
     );
 };
