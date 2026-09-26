@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitLog
 
-## Getting Started
+A modern and responsive workout library web application built with Next.js and TypeScript. FitLog helps users discover workouts, view workout details, create a daily workout plan, and save workouts for later.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* 🏋️ Browse a collection of workouts from the workout library
+* 📋 View detailed information about each workout
+* ➕ Add workouts to Today's Plan
+* 🔖 Save workouts for later
+* 📊 View total exercises, minutes, and calories in the plan
+* ✅ Mark workouts as done
+* ❌ Remove workouts from Today's Plan or Saved list
+* 🔄 Sort workouts by duration, calories, and rating
+* 🔔 Toast notifications for user actions
+* ⏳ Loading state while workout data is being fetched
+* 🚫 Custom 404 page for unavailable routes
+* 📱 Fully responsive for mobile, tablet, and desktop
+
+## 🛠️ Technologies Used
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* React Icons
+* React Toastify
+* REST API
+
+## 🔌 API
+
+Workout data is fetched from the FitLog API.
+
+```tsx id="r7n2kp"
+const res = await fetch(
+    `https://api.abcz.workers.dev/api/fitlog/${id}`
+);
+
+if (!res.ok) {
+    notFound();
+}
+
+const workout = await res.json();
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 State Management
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Context API is used to manage Today's Plan and Saved workouts.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```tsx id="m4x8qa"
+const [plan, setPlan] = useState<FitLogType[]>([]);
+const [saved, setSaved] = useState<FitLogType[]>([]);
+```
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+The project follows the Next.js App Router structure and uses reusable components for different sections of the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* `app/` — Pages and routes
+* `components/` — Reusable UI components
+* `context/` — Global workout state
+* `workout/[id]/` — Dynamic workout details page
+* `my-plan/` — User's workout plan
+* `loading.tsx` — Loading state
+* `not-found.tsx` — Custom 404 page
+* `public/` — Static assets and data
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎯 Project Goal
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The goal of FitLog is to provide a simple and focused way to discover workouts and organize a daily workout routine.
