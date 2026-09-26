@@ -5,6 +5,7 @@ import { useFitLog } from "@/app/context/FitLogContext";
 import { BiPlusCircle } from "react-icons/bi";
 import { FiBookmark } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { MdAddCard } from "react-icons/md";
 
 interface WorkoutActionsProps {
     workout: FitLogType;
@@ -50,9 +51,9 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
             {/* Add to today's plan */}
             <button
                 onClick={handleAddToPlan}
-                className="flex-1 bg-[#C2F800] text-black font-bold text-xs uppercase py-2 rounded-2xl flex items-center justify-center gap-2 hover:opacity-90 transition"
+                className="flex-1 bg-[#C2F800] text-black font-bold text-xs py-2 rounded-2xl flex items-center justify-center gap-2 hover:opacity-90 transition"
             >
-                <BiPlusCircle className="w-4 h-4" />
+                <MdAddCard className="w-4 h-4" />
 
                 <span>
                     Add to today&apos;s plan
@@ -62,7 +63,7 @@ const WorkoutActions = ({ workout }: WorkoutActionsProps) => {
             {/* Save for later */}
             <button
                 onClick={handleSaveForLater}
-                className="flex-1 border border-[#2D313B] text-[#D1D5DB] font-bold text-xs uppercase py-3 rounded-2xl flex items-center justify-center gap-2 hover:border-white transition"
+                className="flex-1 border border-[#2D313B] text-[#D1D5DB] font-bold text-xs py-3 rounded-2xl flex items-center justify-center gap-2 hover:border-white transition"
             >
                 <FiBookmark className="w-4 h-4" />
 

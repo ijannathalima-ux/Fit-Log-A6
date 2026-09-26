@@ -55,45 +55,66 @@ const MyPlanContent = () => {
             <div className="container mx-auto px-4 py-10 md:px-6 md:py-14 max-w-7xl">
 
                 <div className="mb-10">
-                    <h1 className="text-4xl font-extrabold uppercase md:text-5xl tracking-tight text-white">
+                    <h1 className="text-4xl font-extrabold uppercase md:text-5xl text-white">
                         MY PLAN
                     </h1>
-                    <p className="mt-2 text-sm text-[#9CA3AF]">
+                    <p className="mt-2 text-[18px] text-[#9CA3AF]">
                         Cap of five lifts for today. Finish them, then load more.
                     </p>
                 </div>
 
 
-                <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3 font-mono">
-                    <div className="rounded-xl border border-[#222630] bg-[#15171E] p-5">
-                        <p className="text-xs font-bold  text-[#9CA3AF] tracking-wider">Exercises</p>
-                        <p className="mt-2 text-4xl font-bold text-[#C2F800]">{plan.length}</p>
-                    </div>
+                {/* Metrics */}
+                <div className="mb-10 rounded-2xl border border-[#252932] bg-[#151922] p-6 md:p-8">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-zinc-800">
 
-                    <div className="rounded-xl border border-[#222630] bg-[#15171E] p-5">
-                        <p className="text-xs font-bold  text-[#9CA3AF] tracking-wider">Minutes</p>
-                        <p className="mt-2 text-4xl font-bold text-white">{totalMinutes}</p>
-                    </div>
+                        {/* Exercises */}
+                        <div className="flex flex-col justify-center pb-4 sm:pb-0 sm:px-4">
+                            <p className="text-xs font-bold uppercase text-[#9CA3AF] tracking-widest">
+                                Exercises
+                            </p>
+                            <p className="mt-2 text-4xl font-extrabold text-[#C2F800]">
+                                {plan.length}
+                            </p>
+                        </div>
 
-                    <div className="rounded-xl border border-[#222630] bg-[#15171E] p-5">
-                        <p className="text-xs font-bold text-[#9CA3AF] tracking-wider">Calories</p>
-                        <p className="mt-2 text-4xl font-bold text-white">{totalCalories}</p>
+                        {/* Minutes */}
+                        <div className="flex flex-col justify-center pt-4 sm:pt-0 pb-4 sm:pb-0 sm:px-8">
+                            <p className="text-xs font-bold uppercase text-[#9CA3AF] tracking-widest">
+                                Minutes
+                            </p>
+                            <p className="mt-2 text-4xl font-extrabold text-white">
+                                {totalMinutes}
+                            </p>
+                        </div>
+
+                        {/* Calories */}
+                        <div className="flex flex-col justify-center pt-4 sm:pt-0 sm:px-8">
+                            <p className="text-xs font-bold uppercase text-[#9CA3AF] tracking-widest">
+                                Calories
+                            </p>
+                            <p className="mt-2 text-4xl font-extrabold text-white">
+                                {totalCalories}
+                            </p>
+                        </div>
+
                     </div>
                 </div>
+
 
 
                 <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div className="flex gap-2 bg-[#151921] py-2 px-3 rounded-2xl">
                         <button
                             onClick={() => setActiveTab("plan")}
-                            className={`px-5 py-3 text-sm font-bold tracking-wider transition ${activeTab === "plan" ? " rounded-2xl text-white bg-[#2B303D]" : "text-[#9CA3AF] hover:text-white"
+                            className={`px-5 py-3 text-sm font-bold tracking-wider transition ${activeTab === "plan" ? " rounded-2xl bg-[#2B303D] text-[#C2F800]" : "text-[#9CA3AF] hover:text-white"
                                 }`}
                         >
                             Today&apos;s Plan
                         </button>
                         <button
                             onClick={() => setActiveTab("saved")}
-                            className={`px-5 py-3 text-sm font-bold tracking-wider transition ${activeTab === "saved" ? "rounded-2xl text-white bg-[#2B303D]" : "text-[#9CA3AF] hover:text-white"
+                            className={`px-5 py-3 text-sm font-bold tracking-wider transition ${activeTab === "saved" ? "rounded-2xl text-[#C2F800] bg-[#2B303D]" : "text-[#9CA3AF] hover:text-white"
                                 }`}
                         >
                             Saved
@@ -110,7 +131,7 @@ const MyPlanContent = () => {
                                     e.target.value as "duration" | "calories" | "rating"
                                 )
                             }
-                            className="bg-[#15171E] border border-[#222630] text-white rounded-2xl px-2 py-1 outline-none text-xs font-bold uppercase"
+                            className="bg-[#15171E] border border-[#222630] text-white rounded-2xl px-4 py-3 outline-none text-xs font-bold uppercase"
                         >
                             <option value="duration">Duration</option>
                             <option value="calories">Calories</option>

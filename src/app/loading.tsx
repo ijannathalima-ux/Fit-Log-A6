@@ -4,7 +4,7 @@ const Loading = () => {
     return (
         <div>
             <div className="min-h-screen bg-[#0C0D10] flex items-center justify-center">
-                <p className="text-[#C2F800] font-bold uppercase tracking-wider">
+                <p className="text-white font-bold tracking-wider text-2xl">
                     Loading workouts...
                 </p>
             </div>
