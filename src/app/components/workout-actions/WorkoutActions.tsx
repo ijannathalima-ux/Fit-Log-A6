@@ -2,7 +2,6 @@
 
 import { FitLogType } from "@/type/types";
 import { useFitLog } from "@/app/context/FitLogContext";
-import { BiPlusCircle } from "react-icons/bi";
 import { FiBookmark } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { MdAddCard } from "react-icons/md";

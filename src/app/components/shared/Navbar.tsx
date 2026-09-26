@@ -3,14 +3,17 @@ import Logo from "@/app/assets/logo.png";
 import ActiveLink from "./ActiveLink";
 import PlanBadge from "../badge/PlanBadge";
 import SavedBadge from "../badge/SavedBadge";
+import MobileMenu from "./MobileMenu";
+
 
 const NavbarPage = () => {
+
     return (
         <div className="bg-[#0C0D10] sticky top-0 z-40 border-b border-[#2D313B]">
             <div className="container mx-auto px-4 py-4 md:p-6 ">
 
 
-                <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div className="flex items-center justify-between">
 
                     {/* Navbar logo */}
                     <div className="flex items-center gap-2">
@@ -24,7 +27,7 @@ const NavbarPage = () => {
                     </div>
 
                     {/* navbar menu */}
-                    <ul className="flex items-center gap-3 text-[15px] text-[#9CA3AF] font-medium md:gap-4 md:text-[17px]">
+                    <ul className=" hidden md:flex items-center gap-3 text-[15px] text-[#9CA3AF] font-medium md:gap-4 md:text-[17px]">
                         <li>
                             <ActiveLink href="/">Workouts</ActiveLink>
                         </li>
@@ -34,12 +37,13 @@ const NavbarPage = () => {
                     </ul>
 
                     {/* plan and saved */}
-                    <div className="flex items-center gap-5 text-sm md:gap-9 md:text-[17px] text-[#9CA3AF] font-medium">
-
+                    <div className=" hidden md:flex items-center gap-5 text-sm md:gap-9 md:text-[17px] text-[#9CA3AF] font-medium">
                         <PlanBadge />
-
                         <SavedBadge />
                     </div>
+
+                    {/* Mobile menu */}
+                    <MobileMenu/>
                 </div>
             </div>
         </div>
